@@ -11,9 +11,9 @@ Version 1.0
 Time to treat 2 files with 659,996 and 593,837 reads: 1h 21min 40sec
 
 ## Installation
-You will need biopython:
+You will need biopython and docopt:
 
-        sudo pip3 install biopython
+        sudo pip3 install biopython docopt
 
 ## Documentation
 Usage:
