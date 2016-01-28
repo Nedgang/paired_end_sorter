@@ -41,16 +41,17 @@ def main(args):
     Just a regular main, which call all the differents functions, and do 
     barely nothing else (matters).
     """
-    # First of all, extract the sequences.
+    # First of all, extract the sequences, and sort them by their ID.
     list_reads1 = sorted(_extract(args["<reads1>"], args["--format"]),
                     key=lambda seq: seq.id)
     list_reads2 = sorted(_extract(args["<reads2>"], args["--format"]),
                     key=lambda seq: seq.id)
+    # Read the smallest file, maybe not usefull, i've to make test.
     if len(list_reads1) < len(list_reads2):
         pair_find = _find_paires(list_reads1, list_reads2)
     else: 
         pair_find = _find_paires(list_reads2, list_reads1)
-    print(pair_find[0].id, pair_find[1].id)
+    # Print result in a file.
     print_file(pair_find, args["--format"], args["--output"])
 
 
@@ -59,7 +60,7 @@ def main(args):
 #############
 def _extract(path_file, file_format):
     """
-    Extract all infos from the file.
+    Extract all infos from the sequences file.
     """
     # A generator, juste because it's beautifull
     label_list = [sequence for sequence in
@@ -72,7 +73,6 @@ def _find_paires(list_reads1, list_reads2):
     containing each pair interlaced (1.1, 1.2, 2.1, 2.2, 3.1, etc).
     """
     return_list = []
-#    i = len(list_reads1)
     for read1 in list_reads1:
         for read2 in list_reads2:
             if read1.id[:-3] == read2.id[:-3]:
@@ -83,11 +83,14 @@ def _find_paires(list_reads1, list_reads2):
             elif read1.id[:-3] < read2.id[:-3]:
                 list_reads2 = list_reads2[list_reads2.index(read2):]
                 break
-#        i -= 1
-#        print(i)
     return return_list
 
 def print_file(selected_seq, seq_type, output):
+    """
+    selected_seq: a list
+    seq_type: string
+    output: file path
+    """
     output_file = open(output, "w")
     SeqIO.write(selected_seq, output_file, seq_type)
     output_file.close
