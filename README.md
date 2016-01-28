@@ -10,6 +10,7 @@ Time to treat 2 files with 659,996 and 593,837 reads: 1h 21min 40sec
 
 ## Installation
 You will need biopython:
+
         sudo pip3 install biopython
 
 ## Documentation
