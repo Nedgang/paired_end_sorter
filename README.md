@@ -7,6 +7,10 @@ with uncomplete pairs trapped in it. (readX.1 without a readX.2, etc...)
 ## Version
 Curretly in test for optimisation.
 
+## Installation
+You will need biopython:
+    sudo pip3 install biopython
+
 ## Documentation
 Will be done with the first stable version.
 
