@@ -8,11 +8,10 @@ At the end, you will have a file with entrelaced pairs of paired-end reads.
 ## Version
 Version 1.1
 
-Next major update: multi-threading.
-
 Time to treat:
 - 659,996 and 593,837 reads (1,253,833 reads): 1h 21min 40sec
 - 689,685 and 710,417 reads (1,400,102 reads): 1h 32min 8sec
+- 903,535 and 799,652 reads (1,730,187 reads): 2h 36min 46sec
 
 ## Installation
 You will need biopython and docopt:
