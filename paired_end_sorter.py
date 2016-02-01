@@ -43,10 +43,8 @@ def main(args):
                     key=lambda seq: seq.id)
     # Read the smallest file, maybe not usefull, i've to make test.
     print("2. Checking pairs")
-    if len(list_reads1) < len(list_reads2):
-        pair_find = _find_paires(list_reads1, list_reads2)
-    else: 
-        pair_find = _find_paires(list_reads2, list_reads1)
+    pair_find = _find_paires(list_reads1, list_reads2)
+
     # Print result in a file.
     print("3. Writing output")
     print_file(pair_find, args["--format"], args["--output"])
